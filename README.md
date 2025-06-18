@@ -1,35 +1,77 @@
-# Monorepo POC
+# GitHub Package Monorepo POC
 
-This is a minimalistic monorepo project containing a Node.js backend and React frontend.
+A proof of concept demonstrating GitHub Package Registry integration within a monorepo setup using pnpm workspaces and Turborepo.
 
-## Prerequisites
+## Overview
 
-- Node.js (v16 or higher)
-- pnpm (v8 or higher)
+This POC showcases:
+- Creating and publishing npm packages to GitHub Package Registry
+- Using published packages within a monorepo
+- Backend and frontend applications consuming the packages
+- Modern monorepo tooling with pnpm and Turborepo
 
-## Getting Started
+## Packages
 
-1. Install dependencies:
+- **[@deepak-terse/hello-api](packages/hello-api/README.md)** - Node.js API utilities
+- **[@deepak-terse/hello-ui](packages/hello-ui/README.md)** - React component
+
+## Applications
+
+- **Backend** - Express.js server using the API package
+- **Frontend** - React app using the UI component
+
+## Quick Start
+
 ```bash
+# Install dependencies
 pnpm install
-```
 
-2. Start the development servers:
-```bash
+# Start development servers
 pnpm start
 ```
 
-This will start:
-- Backend server at http://localhost:3000
-- Frontend server at http://localhost:5173
+- Backend: http://localhost:3000
+- Frontend: http://localhost:5173
 
 ## Project Structure
 
-- `apps/backend`: Node.js Express server
-- `apps/frontend`: React application with Vite
+```
+├── apps/
+│   ├── backend/          # Express.js server
+│   └── frontend/         # React app
+├── packages/
+│   ├── hello-api/        # @deepak-terse/hello-api
+│   └── hello-ui/         # @deepak-terse/hello-ui
+└── package.json
+```
 
-## Available Scripts
+## Development
 
-- `pnpm start`: Start all applications in development mode
-- `pnpm build`: Build all applications
-- `pnpm lint`: Run linting for all applications 
+```bash
+# Start all apps
+pnpm start
+
+# Build packages
+pnpm build
+
+# Publish packages
+pnpm --filter @deepak-terse/hello-api publish
+pnpm --filter @deepak-terse/hello-ui publish
+```
+
+## GitHub Package Registry
+
+Packages are configured to publish to GitHub Package Registry:
+
+```json
+{
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
+```
+
+## Repository
+
+https://github.com/deepakterse/gh-pkg-monorepo-poc 
