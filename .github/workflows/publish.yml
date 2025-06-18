@@ -30,6 +30,11 @@ jobs:
           version: 8
           run_install: false
       
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+          echo "@monorepo:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+      
       - name: Verify pnpm installation
         run: |
           pnpm --version
