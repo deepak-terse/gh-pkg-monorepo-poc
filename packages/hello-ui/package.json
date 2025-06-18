@@ -1,11 +1,16 @@
 {
   "name": "@deepak-terse/hello-ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "main": "./src/index.jsx",
   "exports": {
     ".": "./src/index.jsx"
   },
+  "readme": "./README.md",
+  "files": [
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "build": "echo 'No build step needed for UI package'"
   },
@@ -21,4 +26,4 @@
   "peerDependencies": {
     "react": "^18.2.0"
   }
-} 
+}
