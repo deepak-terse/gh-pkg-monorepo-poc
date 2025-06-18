@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nodemon --watch src --watch ../../packages/backend-hello/src src/index.js",
+    "dev": "nodemon --watch src --watch ../../packages src/index.js",
     "build": "echo 'No build step needed'",
     "lint": "echo 'No lint step needed'"
   },

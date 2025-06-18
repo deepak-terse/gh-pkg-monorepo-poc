@@ -14,9 +14,9 @@ importers:
 
   apps/backend:
     dependencies:
-      '@monorepo/api':
+      '@deepak-terse/hello-api':
         specifier: workspace:*
-        version: link:../../packages/backend-hello
+        version: link:../../packages/hello-api
       express:
         specifier: ^4.18.2
         version: 4.21.2
@@ -27,9 +27,9 @@ importers:
 
   apps/frontend:
     dependencies:
-      '@monorepo/ui':
+      '@deepak-terse/hello-ui':
         specifier: workspace:*
-        version: link:../../packages/ui-hello
+        version: link:../../packages/hello-ui
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -62,9 +62,9 @@ importers:
         specifier: ^5.1.0
         version: 5.4.19
 
-  packages/backend-hello: {}
+  packages/hello-api: {}
 
-  packages/ui-hello:
+  packages/hello-ui:
     dependencies:
       react:
         specifier: ^18.2.0

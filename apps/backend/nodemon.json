@@ -1,5 +1,5 @@
 {
-  "watch": ["src", "../../packages/backend-hello/src"],
+  "watch": ["src", "../../packages/hello-api/src"],
   "ext": "js,json",
   "ignore": ["node_modules", ".git"],
   "exec": "node src/index.js"
