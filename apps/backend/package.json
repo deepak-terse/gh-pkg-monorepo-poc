@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --watch src --watch ../../packages/backend-hello/src src/index.js",
+    "build": "echo 'No build step needed'",
+    "lint": "echo 'No lint step needed'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@monorepo/api": "workspace:*"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+} 

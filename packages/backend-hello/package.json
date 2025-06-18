@@ -1,0 +1,21 @@
+{
+  "name": "@monorepo/api",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "build": "echo 'No build step needed for API package'"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepakterse/gh-pkg-monorepo-poc.git"
+  },
+  "private": false
+} 

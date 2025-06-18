@@ -1,0 +1,13 @@
+{
+  "name": "gh-pkg-monorepo-poc",
+  "private": true,
+  "scripts": {
+    "start": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "^1.12.4"
+  },
+  "packageManager": "pnpm@8.15.4"
+} 

@@ -1,0 +1,24 @@
+{
+  "name": "@monorepo/ui",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./src/index.jsx",
+  "exports": {
+    ".": "./src/index.jsx"
+  },
+  "scripts": {
+    "build": "echo 'No build step needed for UI package'"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepakterse/gh-pkg-monorepo-poc.git"
+  },
+  "private": false,
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+} 
