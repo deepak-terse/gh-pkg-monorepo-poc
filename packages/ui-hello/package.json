@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/ui",
+  "name": "@deepak-terse/hello-ui",
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.jsx",

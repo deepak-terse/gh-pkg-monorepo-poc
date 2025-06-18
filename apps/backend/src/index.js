@@ -1,5 +1,5 @@
 import express from 'express';
-import { getHelloMessage } from '@monorepo/api';
+import { getHelloMessage } from '@deepak-terse/hello-api';
 
 const app = express();
 const port = 3000;

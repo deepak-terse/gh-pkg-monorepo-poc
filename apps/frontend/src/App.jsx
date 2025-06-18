@@ -1,4 +1,4 @@
-import HelloFromFrontend from '@monorepo/ui';
+import HelloFromFrontend from '@deepak-terse/hello-ui';
 
 function App() {
   return <HelloFromFrontend />;

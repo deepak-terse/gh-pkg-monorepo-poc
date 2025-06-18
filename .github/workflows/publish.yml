@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@monorepo'
+          scope: '@deepak-terse'
       
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -33,7 +33,7 @@ jobs:
       - name: Configure npm for GitHub Packages
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
-          echo "@monorepo:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          echo "@deepak-terse:registry=https://npm.pkg.github.com/" >> ~/.npmrc
       
       - name: Verify pnpm installation
         run: |
