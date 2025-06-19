@@ -1,0 +1,43 @@
+name: Generate and Check Types
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/**'
+      - '.github/workflows/types.yml'
+  pull_request:
+    paths:
+      - 'packages/**'
+      - '.github/workflows/types.yml'
+
+jobs:
+  types:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Generate type definitions for all packages
+        run: |
+          pnpm --filter @deepak-terse/hello-api run types
+          pnpm --filter @deepak-terse/hello-ui run types
+      
+      - name: Check for generated type definitions
+        run: |
+          test -f packages/hello-api/dist/index.d.ts
+          test -f packages/hello-ui/dist/index.d.ts 
