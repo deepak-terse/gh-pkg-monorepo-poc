@@ -1,6 +1,6 @@
 {
   "name": "@deepak-terse/hello-api",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A Node.js package demonstrating GitHub Package Registry publishing and usage within a monorepo setup.",
   "type": "module",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "types": "tsc --project tsconfig.json",
-    "build": "pnpm run types"
+    "build": "tsc --project tsconfig.json"
   },
   "devDependencies": {
     "@babel/parser": "^7.24.4",
@@ -29,5 +29,16 @@
     "type": "git",
     "url": "git+https://github.com/deepakterse/gh-pkg-monorepo-poc.git"
   },
-  "private": false
+  "private": false,
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": false,
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "target": "ESNext",
+    "moduleResolution": "nodenext"
+  }
 }
