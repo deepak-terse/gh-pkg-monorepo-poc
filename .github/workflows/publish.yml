@@ -1,4 +1,4 @@
-name: Publish Packages
+name: Build, Check Types, and Publish Packages
 
 on:
   push:
@@ -7,9 +7,13 @@ on:
     paths:
       - 'packages/**'
       - '.github/workflows/publish.yml'
+  pull_request:
+    paths:
+      - 'packages/**'
+      - '.github/workflows/publish.yml'
 
 jobs:
-  publish:
+  build-types-publish:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -60,7 +64,18 @@ jobs:
       - name: Build packages
         run: pnpm --filter @deepak-terse/hello-api... --filter @deepak-terse/hello-ui... build
       
+      - name: Generate type definitions for all packages
+        run: |
+          pnpm --filter @deepak-terse/hello-api run types
+          pnpm --filter @deepak-terse/hello-ui run types
+      
+      - name: Check for generated type definitions
+        run: |
+          test -f packages/hello-api/dist/index.d.ts
+          test -f packages/hello-ui/dist/index.d.ts
+      
       - name: Publish packages
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: pnpm -r publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
