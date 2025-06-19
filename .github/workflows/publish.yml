@@ -60,6 +60,16 @@ jobs:
       - name: Build packages
         run: pnpm build
       
+      - name: Generate type definitions for all packages
+        run: |
+          pnpm --filter @deepak-terse/hello-api run types
+          pnpm --filter @deepak-terse/hello-ui run types
+
+      - name: Check for generated type definitions
+        run: |
+          test -f packages/hello-api/dist/index.d.ts
+          test -f packages/hello-ui/dist/index.d.ts
+      
       - name: Publish packages
         run: pnpm -r publish --access public --no-git-checks
         env:

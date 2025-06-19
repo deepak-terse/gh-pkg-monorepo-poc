@@ -12,7 +12,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "echo 'No build step needed for UI package'"
+    "types": "tsc --project tsconfig.json",
+    "build": "npm run types"
   },
   "publishConfig": {
     "access": "public",
@@ -25,5 +26,6 @@
   "private": false,
   "peerDependencies": {
     "react": "^18.2.0"
-  }
+  },
+  "types": "dist/index.d.ts"
 }

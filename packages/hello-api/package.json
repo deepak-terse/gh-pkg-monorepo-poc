@@ -12,7 +12,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "echo 'No build step needed for API package'"
+    "types": "tsc --project tsconfig.json",
+    "build": "npm run types"
   },
   "publishConfig": {
     "access": "public",
@@ -22,5 +23,6 @@
     "type": "git",
     "url": "git+https://github.com/deepakterse/gh-pkg-monorepo-poc.git"
   },
-  "private": false
+  "private": false,
+  "types": "dist/index.d.ts"
 }
